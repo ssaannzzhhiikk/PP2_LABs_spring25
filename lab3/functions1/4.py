@@ -5,12 +5,12 @@ def filter_prime(n):
         if num > 1:
             for i in range(2, (num//2)+1):
                 if (num % i) == 0:
-                    t = False #print(num, "is not a prime number")
+                    t = False 
                     break
             else:
-                t = True #print(num, "is a prime number")
+                t = True
         else:
-            t = False #print(num, "is not a prime number")
+            t = False
         if t == True:
             new.append(num)
     
