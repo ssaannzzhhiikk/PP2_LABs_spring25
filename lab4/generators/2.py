@@ -7,5 +7,6 @@ def evens(n):
 
 generator = evens(N)
 
-for x in generator:
-    print(x)
+numbers = ",".join(str(x) for x in generator)
+
+print(numbers)
