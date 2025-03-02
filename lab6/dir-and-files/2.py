@@ -25,5 +25,4 @@ def check_path_access(path):
         print("THe path isn't executable")
 
 
-p = input()
-check_path_access(p)
+check_path_access(r"C:\Users\omark\OneDrive\Рабочий стол\PP2")
