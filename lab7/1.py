@@ -40,7 +40,7 @@ while done:
     screen.blit(rotated_second, ne_rect)
 
     pygame.display.flip()
-    clock.tick(1)
+    clock.tick(60)
 
 pygame.quit()
         
