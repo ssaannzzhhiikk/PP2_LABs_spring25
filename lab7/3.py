@@ -2,8 +2,8 @@ import pygame
 pygame.init()
 
 # Data for usage
-height = 400
-width = 400
+height = 800
+width = 800
 x, y = width // 2, height // 2
 done = True
 speed = 20

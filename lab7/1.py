@@ -7,7 +7,7 @@ screen = pygame.display.set_mode((800, 600))
 clock = pygame.time.Clock()
 
 #images
-main_clock = mainclock = pygame.transform.scale(pygame.image.load(r"C:\Users\omark\OneDrive\Рабочий стол\PP2\lab7\mickey_images\clock.png"), (800, 600))
+main_clock  = pygame.transform.scale(pygame.image.load(r"C:\Users\omark\OneDrive\Рабочий стол\PP2\lab7\mickey_images\clock.png"), (800, 600))
 right_arm = pygame.image.load(r"C:\Users\omark\OneDrive\Рабочий стол\PP2\lab7\mickey_images\rightarm.png")
 left_arm = pygame.image.load(r"C:\Users\omark\OneDrive\Рабочий стол\PP2\lab7\mickey_images\leftarm.png")
 
