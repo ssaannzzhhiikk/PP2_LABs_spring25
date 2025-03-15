@@ -15,13 +15,13 @@ clock = pygame.time.Clock()
 screen = pygame.display.set_mode((width, height))
 
 #images
-bg_image = pygame.transform.scale(pygame.image.load(r"C:\Users\omark\OneDrive\Рабочий стол\PP2\lab7\controller_images\album.jpg"), (width, height))
-back_button = pygame.transform.scale( pygame.image.load(r"C:\Users\omark\OneDrive\Рабочий стол\PP2\lab7\controller_images\back.png"), (100,100))
-next_button = pygame.transform.scale( pygame.image.load(r"C:\Users\omark\OneDrive\Рабочий стол\PP2\lab7\controller_images\next.png"), (100,100))
-pressed_back_button = pygame.transform.scale( pygame.image.load(r"C:\Users\omark\OneDrive\Рабочий стол\PP2\lab7\controller_images\back.png"), (120,120))
-pressed_next_button = pygame.transform.scale( pygame.image.load(r"C:\Users\omark\OneDrive\Рабочий стол\PP2\lab7\controller_images\next.png"), (120,120))
-pause_button = pygame.transform.scale( pygame.image.load(r"C:\Users\omark\OneDrive\Рабочий стол\PP2\lab7\controller_images\pause.png"), (100,100))
-play_button = pygame.transform.scale( pygame.image.load(r"C:\Users\omark\OneDrive\Рабочий стол\PP2\lab7\controller_images\play.png"), (100,100))
+bg_image = pygame.transform.scale(pygame.image.load(r"lab7\controller_images\album.jpg"), (width, height))
+back_button = pygame.transform.scale( pygame.image.load(r"lab7\controller_images\back.png"), (100,100))
+next_button = pygame.transform.scale( pygame.image.load(r"lab7\controller_images\next.png"), (100,100))
+pressed_back_button = pygame.transform.scale( pygame.image.load(r"lab7\controller_images\back.png"), (120,120))
+pressed_next_button = pygame.transform.scale( pygame.image.load(r"lab7\controller_images\next.png"), (120,120))
+pause_button = pygame.transform.scale( pygame.image.load(r"lab7\controller_images\pause.png"), (100,100))
+play_button = pygame.transform.scale( pygame.image.load(r"lab7\controller_images\play.png"), (100,100))
 
 #Necessary variables
 done = True
@@ -60,7 +60,7 @@ while done:
     #interactive control 
     if played: #play/pause
         screen.blit(play_button, (300,550))
-        pygame.mixer.music.load(rf'C:\Users\omark\OneDrive\Рабочий стол\PP2\lab7\songs\{list_musics[seq]}')
+        pygame.mixer.music.load(rf'lab7\songs\{list_musics[seq]}')
         pygame.mixer.music.play(0)
     else:
         screen.blit(pause_button, (300,550))
@@ -68,12 +68,12 @@ while done:
     
     if pressed[pygame.K_LEFT]: #back
         screen.blit(pressed_back_button, (190,540))
-        pygame.mixer.music.load(rf'C:\Users\omark\OneDrive\Рабочий стол\PP2\lab7\songs\{list_musics[seq]}')
+        pygame.mixer.music.load(rf'lab7\songs\{list_musics[seq]}')
         pygame.mixer.music.play(0)
 
     if pressed[pygame.K_RIGHT]: #next
         screen.blit(pressed_next_button, (390,540))
-        pygame.mixer.music.load(rf'C:\Users\omark\OneDrive\Рабочий стол\PP2\lab7\songs\{list_musics[seq]}')
+        pygame.mixer.music.load(rf'lab7\songs\{list_musics[seq]}')
         pygame.mixer.music.play(0)
     
     

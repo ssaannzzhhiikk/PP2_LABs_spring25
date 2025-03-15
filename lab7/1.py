@@ -7,9 +7,9 @@ screen = pygame.display.set_mode((800, 600))
 clock = pygame.time.Clock()
 
 #images
-main_clock  = pygame.transform.scale(pygame.image.load(r"C:\Users\omark\OneDrive\Рабочий стол\PP2\lab7\mickey_images\clock.png"), (800, 600))
-right_arm = pygame.image.load(r"C:\Users\omark\OneDrive\Рабочий стол\PP2\lab7\mickey_images\rightarm.png")
-left_arm = pygame.image.load(r"C:\Users\omark\OneDrive\Рабочий стол\PP2\lab7\mickey_images\leftarm.png")
+main_clock  = pygame.transform.scale(pygame.image.load(r"lab7\mickey_images\clock.png"), (800, 600))
+right_arm = pygame.image.load(r"lab7\mickey_images\rightarm.png")
+left_arm = pygame.image.load(r"lab7\mickey_images\leftarm.png")
 
 done = True
 
@@ -27,7 +27,7 @@ while done:
     second = current_time.tm_sec
 
     #Angles
-    minute_angle = minute * 6    + (second / 60) * 6   
+    minute_angle = minute * 6 + (second / 60) * 6   
     second_angle = second * 6 
 
     #Rotating
