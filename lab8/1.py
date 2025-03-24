@@ -160,4 +160,4 @@ while True:
 
          
     pygame.display.update()
-    FramePerSec.tick(FPS)
+    FramePerSec.tick(FPS) #
