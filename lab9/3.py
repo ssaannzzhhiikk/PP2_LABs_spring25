@@ -87,7 +87,7 @@ while running:
     #Square
     if isMouseDown and mode == 4 and startX != -1 and startY != -1:
         screen.blit(temp_surface, (0, 0))
-        pygame.draw.rect(screen, color, (min(startX, currentX), min(startY, currentY), abs(currentX - startY), abs(currentX - startY)), 1)
+        pygame.draw.rect(screen, color, (min(startX, currentX), min(startY, currentY), abs(currentX - startX), abs(currentX - startX)), 1)
 
     #Right triangle
     if isMouseDown and mode == 5 and startX != -1 and startY != -1:

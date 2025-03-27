@@ -161,6 +161,5 @@ while True:
     screen.fill(WHITE)
     player.draw(screen)
     pygame.display.flip()
-
+ 
 pygame.quit()
-#

@@ -22,6 +22,8 @@ YELLOW = (255, 255, 0)
 coin_collide = False
 coin_collide5 = False
 coin_collide10 = False
+
+#screen
 SCREEN_WIDTH = 400
 SCREEN_HEIGHT = 600
 SPEED = 5
