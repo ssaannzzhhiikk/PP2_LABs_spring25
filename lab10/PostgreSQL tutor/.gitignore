@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv/
+
+# Editor/IDE
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Config files
+*.ini
+*.cfg
+.env
+
+# Logs
+*.log
+
+# Python wheels
+*.whl
+
+# Database dumps
+*.sql
+*.dump
+
+# Compiled C extensions
+*.so
+
+# Byte-compiled files in nested folders
+**/__pycache__/
+
+# Images (если не нужно версионировать)
+images/
