@@ -33,11 +33,13 @@ def init_procedures():
         # поиск по паттерну
         """
         CREATE OR REPLACE FUNCTION search_by_pattern(pattern TEXT)
-        RETURNS TABLE(id INT, name VARCHAR, phone VARCHAR) AS $$
+        RETURNS SETOF phonebook AS $$
         BEGIN
             RETURN QUERY
-            SELECT * FROM phonebook
-            WHERE name ILIKE '%' || pattern || '%' OR phone LIKE '%' || pattern || '%';
+            SELECT p.*
+            FROM phonebook p
+            WHERE p.name ILIKE '%' || pattern || '%'
+               OR p.phone LIKE '%' || pattern || '%';
         END;
         $$ LANGUAGE plpgsql;
         """,
@@ -57,11 +59,10 @@ def init_procedures():
         $$;
         """,
 
-        #вставка с проверкой номеров
+        # функция для batch вставки с возвратом некорректных данных
         """
-        CREATE OR REPLACE PROCEDURE insert_users_batch(IN usernames TEXT[], IN userphones TEXT[], OUT invalid_data TEXT[])
-        LANGUAGE plpgsql
-        AS $$
+        CREATE OR REPLACE FUNCTION insert_users_batch(usernames TEXT[], userphones TEXT[])
+        RETURNS TEXT[] AS $$
         DECLARE
             i INT := 1;
             invalid_list TEXT[] := '{}';
@@ -74,9 +75,9 @@ def init_procedures():
                 END IF;
                 i := i + 1;
             END LOOP;
-            invalid_data := invalid_list;
+            RETURN invalid_list;
         END;
-        $$;
+        $$ LANGUAGE plpgsql;
         """,
 
         # пагинация
@@ -90,7 +91,6 @@ def init_procedures():
             LIMIT lim OFFSET offs;
         END;
         $$ LANGUAGE plpgsql;
-
         """,
 
         #удаление по имени или телефону
@@ -140,12 +140,10 @@ def insert_from_csv_batch(path):
             names.append(row[0].strip())
             phones.append(row[1].strip())
 
-    cur.execute("CALL insert_users_batch(%s, %s, %s)", (names, phones, None))
-    conn.commit()
-
     cur.execute("SELECT * FROM insert_users_batch(%s, %s)", (names, phones))
     invalid = cur.fetchall()
-    if invalid:
+
+    if invalid and any(i[0] for i in invalid):
         print("Некорректные данные:")
         for entry in invalid:
             print(entry[0])
